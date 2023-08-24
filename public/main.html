@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./style/main.css" type="text/css"> -->
+    <script src = "https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.js"></script>
+    <style>
+        @font-face {
+            font-family: 'NeoDunggeunmo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+            font-weight: normal; font-style: normal;
+        }
+        @font-face {
+            font-family: 'LINESeedKR-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+            font-weight: 700; font-style: normal;
+        }
+        @font-face {
+            font-family: 'Cafe24Supermagic-Bold-v1.0';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+            font-weight: 700;  font-style: normal;
+        }
+        @font-face {
+            font-family: 'TheJamsil5Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+            font-weight: 700; font-style: normal;
+        }
+        @font-face {
+            font-family: 'Giants-Inline';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+            font-weight: normal; font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Main169" style="width: 1920px; height: 1080px; position: relative; background: white">
+
+        <div class="BgBox" style="width: 1950.36px; height: 1236.74px; left: -40px; top: -169.74px; position: absolute">
+          <div class="BackDiv" style="width: 1912.72px; height: 1236.40px; left: 37.64px; top: 0px; position: absolute; background: #D9D9D9"></div>
+          <img class="BgImg21" style="width: 1946px; height: 1106px; left: 0px; top: 130.74px; position: absolute" src="./assets/img/bg_img2.png" />
+        </div>
+        <div class="RightBox" style="width: 391.39px; height: 972.44px; left: 1496.06px; top: 54.18px; position: absolute">
+          <div class="RightStick" style="width: 391.39px; height: 972.44px; left: 0px; top: 0px; position: absolute; background:#FF4444 100%; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 100px"></div>
+          <div class="RightR" style="width: 113.90px; height: 113.55px; left: 196.73px; top: 579.13px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="RightR01" style="width: 44.52px; height: 44.39px; left: 230.90px; top: 238.46px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="RightR02" style="width: 44.52px; height: 44.39px; left: 270.25px; top: 277.69px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="RightR03" style="width: 44.52px; height: 44.39px; left: 192.59px; top: 277.69px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="RightR04" style="width: 44.52px; height: 44.39px; left: 230.90px; top: 315.89px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="RBox" style="width: 28.99px; height: 28.90px; left: 160.49px; top: 764.94px; position: absolute; background: black; box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25)"></div>
+          <button type="button" id ="mypageIcon" class="MypageIcon" style="width: 75.59px; height: 65.32px; left: 215.29px; top: 602.31px; position: absolute; background:black;">
+            <image src="./assets/img/mypage_icon.png"></image>
+          </button>
+        </div>
+
+        <div class="LeftBox" style="width: 391.39px; height: 972.44px; left: 33px; top: 54.18px; position: absolute">
+          <div class="LeftStick" style="width: 391.39px; height: 972.44px; left: 0px; top: 0px; position: absolute; background: #2BD9FF; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 100px"></div>
+          <div class="LeftR" style="width: 113.90px; height: 113.55px; left: 77.66px; top: 265.30px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="LeftR01" style="width: 44.52px; height: 44.39px; left: 111.83px; top: 570.87px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="LeftR02" style="width: 44.52px; height: 44.39px; left: 151.17px; top: 610.09px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="LeftR03" style="width: 44.52px; height: 44.39px; left: 73.52px; top: 610.09px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <div class="LeftR04" style="width: 44.52px; height: 44.39px; left: 111.83px; top: 648.29px; position: absolute; background: black; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25); border-radius: 141px"></div>
+          <button type="button" id="chatIcon" class="ChatIcon" style="width: 75.59px; height: 48.99px; left: 100.28px; top: 299.43px; position: absolute; background:black">
+            <image src="./assets/img/chat_icon.png"></image>
+          </button>
+          <div class="bgm" style="width: 28.99px; height: 28.90px; left: 185.34px; top: 764.94px; position: absolute; background-color: #2BD9FF">
+            <audio id="player" autoplay loop>
+                <source src="./assets/pixel-plains-158773.mp3" type="audio/mpeg">
+            </audio>
+            <div id="bgmbtn" onclick="togglePlayPause()">
+              <svg id = "pause" xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+                <path d="M0 0V43H14.3333V0H0ZM28.6667 0V43H43V0H28.6667Z" fill="black"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="BottomBox" style="width: 1325.55px; height: 1000px; left: 290.90px; top: 54px; position: absolute">
+          <div class="BottomBox" style="width: 1325.55px; height: 972.92px; left: 0px; top: 0px; position: absolute; background: #2E2E2E; box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25)"></div>
+          <div class="BottomScreen" style="width: 1280.04px; height: 978px; left: 23.10px; top: 22px; position: absolute">
+            <div class="BottomScreen" style="width: 1280px; height: 928.76px; left: 0.04px; top: 0.06px; position: absolute; background: #FCFCFF"></div>
+            
+            <div class="FooterInfo" style="width: 1214.31px; height: 168.97px; left: 26.27px; top: 809.03px; position: absolute">
+              <div class="FooterName" style="width: 200.75px; height: 92.16px; left: 1008.87px; top: 1.82px; position: absolute; color: black; font-size: 40px; font-family: LINESeedKR-Bd; font-weight: 400; word-wrap: break-word">
+                <span id="nick-name"></span>님
+              </div>
+              <div class="FooterLevel" style="width: 59.01px; height: 55.30px; left: 400.01px; top: 61.67px; position: absolute">
+                <image class="FooterLevIcon" style="width: 59.01px; height:55.30px; left: 0px; top: 0px; position: absolute;" src="./assets/img/footer_lev_icon.png"/>
+                <div id="level" class="FooterLevNum" style="width: 41.41px; height: 30.72px; left: 8.28px; top: 12.29px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: NeoDunggeunmo; font-weight: 400; word-wrap: break-word">2</div>
+              </div>
+              <div class="FoooterInt" style="width: 200.55px; height: 46.79px; left: 520.23px; top: 64.93px; position: absolute; color: black; font-size: 43px; font-family: NeoDunggeunmo; font-weight: 400; word-wrap: break-word">
+                INT:<span id="ability"></span>
+              </div>
+              <div class="FooterHp" style="width: 250.27px; height: 46.79px; left: 750.56px; top: 64.93px; position: absolute; color: black; font-size: 43px; font-family: NeoDunggeunmo; font-weight: 400; word-wrap: break-word">
+                HP:<span id="health"></span>
+              </div>
+              <div class="FooterLive1st" style="width: 426.51px; height: 43.52px; left: 0px; top: 4.06px; position: absolute; color: black; font-size: 40px; font-family: LINESeedKR-Bd; font-weight: 400; word-wrap: break-word">
+                <!-- (시간) 1위 kaka 1300원 -->
+              </div>
+              <div class="FooterMoney" style="width: 205.44px; height: 92.48px; left: 1008.87px; top: 64.93px; position: absolute; color: black; font-size: 43px; font-family: NeoDunggeunmo; font-weight: 400; word-wrap: break-word">
+                <span id="money"></span> 원
+              </div>
+              <div class="Timer" style="width: 138.72px; height: 168.97px; left: 0.23px; top: 37.76px; position: absolute; text-align: center; color: black; font-size: 55px;  font-family: NeoDunggeunmo; font-weight: 400; line-height: 82.30px; word-wrap: break-word;">
+                <span id="time"></span>
+              </div>
+            </div>
+            
+            <div id="mainGame" class="BottomGame" style="width: 1280px; height: 800px; left: 0px; top: 0px; position: absolute; background: #9C9393"></div>
+          </div>
+        </div>
+
+
+        <div id ="chat" class="chat" style="display:none; width: 501px; height: 352px; left: 340px; top: 96px; position: absolute">
+            <div class="ChatDiv" style="width: 501px; height: 356px; left: 0px; top: 0px; position: absolute; background: rgba(243.31, 181.71, 23.32, 0.70); border-radius: 4px"></div>
+            <div class="ChatList" style="overflow-y: scroll; width: 488px; height: 292px; left: 6px; top: 4px; position: absolute; background: rgba(255, 255, 255, 0.80); border-radius: 4px">
+                <ul class="EgList" ></ul>
+            </div>
+            <input id="chatInput" class="ChatInput" placeholder="채팅입력" style="width: 485px; height: 50px; left: 4px; top: 298px; position: absolute;
+            background: rgba(255, 255, 255, 0.70); border-color: rgba(243.31, 181.71, 23.32, 0.70); border-radius: 4px;
+            color: black; font-size: 35px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word;
+            flex:8;"> 
+            <img id="chatBtn" class="ChatBtn" src="./assets/img/chat_btn.png" style="width: 55px; height: 48px; left: 439px; top: 300px; position: absolute"/>
+        </div>
+    
+        <div id = "shop" class="ShopModal" style="display:none; width: 1042.84px; height: 650px; left: 450px; top: 151px; position: absolute;">
+          <div class="ShopModal" style="width: 1038.84px; height: 650px; left: 0px; top: 0px; position: absolute; background: #E6F1C7; box-shadow: 2px 2px 2px; border-radius: 16px; border: 0.25px black solid; filter: blur(2px)"></div>
+            <img class="DrinkImg" style="width: 115px; height: 172px; left: 58px; top: 258px; position: absolute" src="./assets/img/drink_img.png" />
+            <img class="FoodImg" style="width: 142px; height: 106px; left: 225px; top: 305px; position: absolute" src="./assets/img/food_img.png" />
+            <img class="BookImg" style="width: 137px; height: 127px; left: 425px; top: 284px; position: absolute" src="./assets/img/book_img.png" />
+            <img class="InsuranceImg" style="width: 356px; height: 117px; left: 629px; top: 308px; position: absolute" src="./assets/img/insurance_img.png" />
+            <button id = "energy"  class="30020hp" style="width: 717px; left: 252px; top: 66px; position: absolute; background: #E6F1C7; border:none; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 500; word-wrap: break-word">에너지 음료             300 원        +20HP</button>
+            <button id = "food" class="60050hp"style="width: 717px; left: 252px; top: 134px; position: absolute; background: #E6F1C7; border:none; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 500; word-wrap: break-word">비빔밥                      600 원        +50HP</button>
+            <button id = "book" class="50050Int" style="width: 717px; left: 252px; top: 202px; position: absolute; background: #E6F1C7; border:none; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 500; word-wrap: break-word">책                              500 원        +50 INT</button>
+            <button id = "inHigh" class="30095" style="width: 717px; left: 252px; top: 469px; position: absolute; background: #E6F1C7; border:none; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 500; word-wrap: break-word">고가형 보험             300 원        -95 원</button>
+            <button id = "inLow"  class="20065" style="width: 717px; left: 252px; top: 542px; position: absolute; background: #E6F1C7; border:none; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 500; word-wrap: break-word">저가형 보험             200 원        -65 원</button>
+            <div style="width: 180px; left: 30px; top: 478px; position: absolute; text-align: center; color: #5B5656; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 500; word-wrap: break-word">병원비<br/>자동 할인</button>
+          </div>
+        </div>
+
+
+        <div id="estate" class="EstateModal" style="display:none; width: 600px; height: 368px; left: 660px; top: 330px; position: absolute">
+          <div class="EstateModalBg" style="width: 600px; height: 368px; left: 0px; top: 0px; position: absolute; background: #E6F1C7; box-shadow: 2px 2px 2px; border-radius: 16px; border: 0.25px black solid; filter: blur(2px)"></div>
+          <div class="EstateTxt" style="width: 476px; height: 67px; left: 62px; top: 30px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">“ 무슨 일로 오셨나요 ? “</div>
+          <div class="EstateBtn" style="width: 529.91px; height: 239.31px; left: 37px; top: 108px; position: absolute">
+              <div id ="sellhouse" class="WorkBtn" style="width: 249.87px; height: 204.31px; left: 0px; top: 35px; position: absolute;">
+                  <svg type="button" class="ForeventIcon" xmlns="http://www.w3.org/2000/svg" width="254" height="208" viewBox="0 0 254 208" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M124.234 2.01782C66.1611 2.82116 14.9401 30.6873 4.06605 70.2186C-8.36573 115.396 36.5877 158.777 104.412 167.054L105.093 167.026L105.465 167.283L103.928 167.328L200.257 206.313L161.208 165.222C208.12 156.304 241.008 132.181 249.802 100.218C262.23 55.0405 217.26 11.6541 149.435 3.37808C140.96 2.34255 132.533 1.90287 124.234 2.01782ZM160.969 165.235H161.112V165.451L160.969 165.235Z" fill="white" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="ForworkingBtntag" style="width: 209px; height: 74px; left: 20.20px; top: 47.60px; position: absolute"></div>
+                  <div id="sell_h" class="WorkingTxt" style="width: 163px; height: 25px; left: 43.20px; top: 64.60px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">집 팔러요</div>
+              </div>
+              <div id ="buyhouse" class="EventBtn" style="width: 249.91px; height: 198.56px; left: 280px; top: 0px; position: absolute">
+                      <svg type="button" xmlns="http://www.w3.org/2000/svg" width="254" height="202" viewBox="0 0 254 202" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M124.26 2.0154C66.1765 2.78383 14.9449 29.4329 4.06545 67.238C-8.36047 110.424 36.5611 151.895 104.353 159.836C104.367 159.902 104.343 160.001 104.337 160.096L103.948 160.109L51.1245 200.556L159.652 158.576L158.583 158.604L159.28 158.166L160.835 158.125L159.652 158.576L161.143 158.535V158.111H161.159C208.12 149.594 241.044 126.518 249.843 95.928C262.274 52.7242 217.297 11.2364 149.46 3.31733C140.981 2.32767 132.553 1.90724 124.256 2.017L124.26 2.0154Z" fill="white"/>
+                          <path d="M159.652 158.576L51.1245 200.556L103.948 160.109L104.337 160.096C104.343 160.001 104.367 159.902 104.353 159.836C36.5611 151.895 -8.36047 110.424 4.06545 67.238C14.9449 29.4329 66.1764 2.78383 124.26 2.0154L124.256 2.017C132.553 1.90724 140.981 2.32767 149.46 3.31733C217.297 11.2364 262.274 52.7242 249.843 95.928C241.044 126.518 208.12 149.594 161.159 158.111H161.143V158.535L159.652 158.576ZM159.652 158.576L158.583 158.604L159.28 158.166L160.835 158.125L159.652 158.576Z" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                        </svg>
+                  <div class="ForeventBtntag" style="width: 195px; height: 81px; left: 26.69px; top: 42.05px; position: absolute"></div>
+                  <div id="buy_h" class="EventTxt" style="width: 207px; height: 34px; left: 20.69px; top: 66.05px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">집 보러요</div>
+              </div>
+          </div>
+      </div>
+
+    <div id="academy" class="AcademyModal" style="display:none; width: 600px; height: 450px; left: 660px; top: 272px; position: absolute">
+        <div class="AcademyModalBg" style="width: 600px; height: 450px; left: 0px; top: 0px; position: absolute; background: #E6F1C7; box-shadow: 2px 2px 2px; border-radius: 16px; border: 0.25px black solid; filter: blur(2px)"></div>
+        <img class="TextBoxingImg" style="width: 406px; height: 298px; left: 122px; top: 31px; position: absolute" src="./assets/img/text-boxing-img.png" />
+        <img class="AcademyImg" style="width: 209px; height: 204px; left: 43px; top: 227px; position: absolute" src="./assets/img/academy_img.png" />
+        <!-- <button id = "academy_quiz" class="AcademyQuizBtnBox" style="width: 300px; height: 73px; left: 177px; top: 162px; position: absolute">
+            <div class="AcademyQuizBtnTxt" style="width: 300px; height: 47px; left: 0px; top: 14px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">공부하러 가기</div>
+            <div class="AcademyQuizBtn" style="width: 216.11px; height: 73px; left: 51.89px; top: 0px; position: absolute; border: 0.50px white solid"></div>
+        </button> -->
+        <button id = "academy_quiz" class="AcademyQuizBtn"
+          style="width: 300px; height: 73px; left: 177px; top: 180px; position: absolute; background-color:white; border: 0.50px white solid;
+          text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word;
+          "> → 공부하러 가기</button>
+        <div class="AcademyTxt" style="width: 336px; height: 35px; left: 157px; top: 85px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">“ 미래를 위해<br>공부해야지! “</div>
+    </div>
+
+    <div id="home" class="HomeModal" style="display:none; width: 600px; height: 450px; left: 660px; top: 272px; position: absolute">
+        <div class="HomeModalBg" style="width: 600px; height: 450px; left: 0px; top: 0px; position: absolute; background: #E6F1C7; box-shadow: 2px 2px 2px; border-radius: 16px; border: 0.25px black solid; filter: blur(2px)"></div>
+        <img class="TextBoxingImg" style="width: 406px; height: 298px; left: 122px; top: 31px; position: absolute" src="./assets/img/text-boxing-img.png" />
+        <img class="HomeImg" style="width: 209px; height: 204px; left: 43px; top: 227px; position: absolute" src="./assets/img/lamb.png" />
+        <button id = "rest" class="RestBtn" style="width: 150px; height: 53px; left: 230px; top: 180px; position: absolute; 
+        background:white; border: 0.50px white solid;
+        text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">
+        → 쉬기
+        </button>
+        <div class="HomeTxt" style="width: 350px; height: 35px; left: 157px; top: 75px; position: absolute; text-align: center; color: black; font-size: 45px;font-family: 'Cafe24Supermagic-Bold-v1.0';font-weight: 500; word-wrap: break-word">피곤하다. 쉬자.<br> (집 있어야 HP 회복)</div>
+    </div>
+
+    <div id="clinic" class="ClinicModal" style="display:none; width: 600px; height: 368px; left: 660px; top: 330px; position: absolute">
+      <div class="ClinicModalBg" style="width: 600px; height: 368px; left: 0px; top: 0px; position: absolute; background: #E6F1C7; box-shadow: 2px 2px 2px; border-radius: 16px; border: 0.25px black solid; filter: blur(2px)"></div>
+      <div class="ClinicTxt" style="width: 476px; height: 67px; left: 62px; top: 30px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">“ 무슨 일로 오셨나요 ? “</div>
+      <div class="ClinicBtn" style="width: 529.91px; height: 239.31px; left: 37px; top: 108px; position: absolute">
+          <div id ="clinic_work" class="WorkBtn" style="width: 249.87px; height: 204.31px; left: 0px; top: 35px; position: absolute;">
+              <svg type="button" class="ForeventIcon" xmlns="http://www.w3.org/2000/svg" width="254" height="208" viewBox="0 0 254 208" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M124.234 2.01782C66.1611 2.82116 14.9401 30.6873 4.06605 70.2186C-8.36573 115.396 36.5877 158.777 104.412 167.054L105.093 167.026L105.465 167.283L103.928 167.328L200.257 206.313L161.208 165.222C208.12 156.304 241.008 132.181 249.802 100.218C262.23 55.0405 217.26 11.6541 149.435 3.37808C140.96 2.34255 132.533 1.90287 124.234 2.01782ZM160.969 165.235H161.112V165.451L160.969 165.235Z" fill="white" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+              </svg>
+              <div class="ForworkingBtntag" style="width: 209px; height: 74px; left: 20.20px; top: 47.60px; position: absolute"></div>
+              <div id="c_work" class="WorkingTxt" style="width: 163px; height: 25px; left: 43.20px; top: 64.60px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">일하러요.</div>
+          </div>
+          <div id ="treatment" class="EventBtn" style="width: 249.91px; height: 198.56px; left: 280px; top: 0px; position: absolute">
+                  <svg type="button" xmlns="http://www.w3.org/2000/svg" width="254" height="202" viewBox="0 0 254 202" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M124.26 2.0154C66.1765 2.78383 14.9449 29.4329 4.06545 67.238C-8.36047 110.424 36.5611 151.895 104.353 159.836C104.367 159.902 104.343 160.001 104.337 160.096L103.948 160.109L51.1245 200.556L159.652 158.576L158.583 158.604L159.28 158.166L160.835 158.125L159.652 158.576L161.143 158.535V158.111H161.159C208.12 149.594 241.044 126.518 249.843 95.928C262.274 52.7242 217.297 11.2364 149.46 3.31733C140.981 2.32767 132.553 1.90724 124.256 2.017L124.26 2.0154Z" fill="white"/>
+                      <path d="M159.652 158.576L51.1245 200.556L103.948 160.109L104.337 160.096C104.343 160.001 104.367 159.902 104.353 159.836C36.5611 151.895 -8.36047 110.424 4.06545 67.238C14.9449 29.4329 66.1764 2.78383 124.26 2.0154L124.256 2.017C132.553 1.90724 140.981 2.32767 149.46 3.31733C217.297 11.2364 262.274 52.7242 249.843 95.928C241.044 126.518 208.12 149.594 161.159 158.111H161.143V158.535L159.652 158.576ZM159.652 158.576L158.583 158.604L159.28 158.166L160.835 158.125L159.652 158.576Z" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                    </svg>
+              <div class="ForeventBtntag" style="width: 195px; height: 81px; left: 26.69px; top: 42.05px; position: absolute"></div>
+              <div id="get_c" class="EventTxt" style="width: 207px; height: 34px; left: 20.69px; top: 66.05px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">아파서요.</div>
+          </div>
+      </div>
+  </div>
+
+    <div id="select" class="SelectModal" style="display:none; width: 600px; height: 368px; left: 660px; top: 330px; position: absolute">
+        <div class="SelectModalBg" style="width: 600px; height: 368px; left: 0px; top: 0px; position: absolute; background: #E6F1C7; box-shadow: 2px 2px 2px; border-radius: 16px; border: 0.25px black solid; filter: blur(2px)"></div>
+        <div class="SelectTxt" style="width: 476px; height: 67px; left: 62px; top: 30px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">“ 무슨 일로 오셨나요 ? “</div>
+        <div class="SelectBtn" style="width: 529.91px; height: 239.31px; left: 37px; top: 108px; position: absolute">
+            <div id ="staff" class="WorkBtn" style="width: 249.87px; height: 204.31px; left: 0px; top: 35px; position: absolute;">
+                <svg type="button" class="ForeventIcon" xmlns="http://www.w3.org/2000/svg" width="254" height="208" viewBox="0 0 254 208" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M124.234 2.01782C66.1611 2.82116 14.9401 30.6873 4.06605 70.2186C-8.36573 115.396 36.5877 158.777 104.412 167.054L105.093 167.026L105.465 167.283L103.928 167.328L200.257 206.313L161.208 165.222C208.12 156.304 241.008 132.181 249.802 100.218C262.23 55.0405 217.26 11.6541 149.435 3.37808C140.96 2.34255 132.533 1.90287 124.234 2.01782ZM160.969 165.235H161.112V165.451L160.969 165.235Z" fill="white" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                </svg>
+                <div class="ForworkingBtntag" style="width: 209px; height: 74px; left: 20.20px; top: 47.60px; position: absolute"></div>
+                <div id="staff_work" class="WorkingTxt" style="width: 163px; height: 25px; left: 43.20px; top: 34.60px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">직원<br>이예요</div>
+            </div>
+            <div id ="visitor" class="EventBtn" style="width: 249.91px; height: 198.56px; left: 280px; top: 0px; position: absolute">
+                <svg type="button" xmlns="http://www.w3.org/2000/svg" width="254" height="202" viewBox="0 0 254 202" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M124.26 2.0154C66.1765 2.78383 14.9449 29.4329 4.06545 67.238C-8.36047 110.424 36.5611 151.895 104.353 159.836C104.367 159.902 104.343 160.001 104.337 160.096L103.948 160.109L51.1245 200.556L159.652 158.576L158.583 158.604L159.28 158.166L160.835 158.125L159.652 158.576L161.143 158.535V158.111H161.159C208.12 149.594 241.044 126.518 249.843 95.928C262.274 52.7242 217.297 11.2364 149.46 3.31733C140.981 2.32767 132.553 1.90724 124.256 2.017L124.26 2.0154Z" fill="white"/>
+                    <path d="M159.652 158.576L51.1245 200.556L103.948 160.109L104.337 160.096C104.343 160.001 104.367 159.902 104.353 159.836C36.5611 151.895 -8.36047 110.424 4.06545 67.238C14.9449 29.4329 66.1764 2.78383 124.26 2.0154L124.256 2.017C132.553 1.90724 140.981 2.32767 149.46 3.31733C217.297 11.2364 262.274 52.7242 249.843 95.928C241.044 126.518 208.12 149.594 161.159 158.111H161.143V158.535L159.652 158.576ZM159.652 158.576L158.583 158.604L159.28 158.166L160.835 158.125L159.652 158.576Z" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                </svg>
+                <div class="ForeventBtntag" style="width: 195px; height: 81px; left: 26.69px; top: 42.05px; position: absolute"></div>
+                <div id="visitor_work" class="EventTxt" style="width: 207px; height: 34px; left: 20.69px; top: 66.05px; position: absolute; text-align: center; color: black; font-size: 45px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 500; word-wrap: break-word">업무요</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 은행업무 선택 -->
+    <div id="bankSelect" class="BankSelectModal" style="display:none; width: 593px; height: 366px; left: 663px; top: 331px; position: absolute">
+        <div class="BankBgImg" style="width: 593px; height: 366px; left: 0px; top: 0px; position: absolute">
+            <div class="BankBg00" style="width: 593px; height: 366px; left: 0px; top: 0px; position: absolute; background: #C0AC67; border-radius: 35px"></div>
+            <div class="BankBg01" style="width: 577px; height: 351px; left: 8px; top: 7px; position: absolute; background: #E1D9BB; border-radius: 35px"></div>
+            <div class="BackBg02" style="width: 500px; height: 0px; left: 44px; top: 209px; position: absolute; border: 1px black dotted"></div>
+            <div class="BackBg02" style="width: 255px; height: 0px; left: 297px; top: 351px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; border: 1px black dotted"></div>
+            <div class="BankBg03" style="width: 550px; height: 0px; left: 23px; top: 84px; position: absolute; border: 0.75px black solid"></div>
+            <img class="BankImg" style="width: 98px; height: 97px; left: 44px; top: 235px; position: absolute" src="./assets/img/bank_img.png" />
+        </div>
+        <button id="saving" class="SavingBtn" style="width: 125px; height: 87px; left: 132px; top: 108px; position: absolute; background: #E1D9BB;
+            border: 0.50px #E1D9BB solid; text-align: center;
+            color: black; font-size: 25px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">적금
+        </button>
+        <button id="withdraw" class="WithdrawBtn" style="width: 125px; height: 87px; left: 354px; top: 108px; position: absolute; background: #E1D9BB;
+            border: 0.50px #E1D9BB solid; text-align: center;
+            color: black; font-size: 25px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">출금
+        </button>
+        <button id="getLoan" class="LoanBtn" style="width: 135px; height: 87px; left: 132px; top: 229px; position: absolute; background: #E1D9BB;
+            border: 0.50px #E1D9BB solid; text-align: center;
+            color: black; font-size: 25px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">대출
+        </button>
+        <button id="repay" class="RepayBtn" style="width: 135px; height: 87px; left: 354px; top: 229px; position: absolute; background: #E1D9BB;
+            border: 0.50px #E1D9BB solid; text-align: center;
+            color: black; font-size: 25px;font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">상환
+        </button>
+        <div class="SelectAskingTxt" style="width: 286px; height: 44px; left: 154px; top: 31px; position: absolute; text-align: center; color: black; font-size: 25px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">원하시는 업무를 눌러주세요</div>
+    </div>
+
+    <div id="bankact" class="BankactModal" style="display:none; width: 593px; height: 366px; left: 663px; top: 331px; position: absolute">
+        <div class="BankBgImg" style="width: 593px; height: 366px; left: 0px; top: 0px; position: absolute">
+            <div class="BankBg00" style="width: 593px; height: 366px; left: 0px; top: 0px; position: absolute; background: #C0AC67; border-radius: 35px"></div>
+            <div class="BankBg01" style="width: 577px; height: 351px; left: 8px; top: 7px; position: absolute; background: #E1D9BB; border-radius: 35px"></div>
+            <div class="BackBg02" style="width: 560px; height: 0px; left: 17px; top: 95px; position: absolute; border: 1px black dotted"></div>
+            <div class="BankBg03" style="width: 370.01px; height: 0px; left: 23px; top: 235px; position: absolute; border: 0.75px black solid"></div>
+            <img class="MoneyBag1" style="width: 133px; height: 133px; left: 411px; top: 199px; position: absolute" src="./assets/img/money-bag.png" />
+        </div>
+        <input id="bankInput" class="BankActInput" type="number" style="width: 323px; height: 47px; left: 44px; top: 264px; position: absolute; color: black; font-size: 28px; border-radius: 26px; border: 1.25px #C0AC67 solid"/>
+        <button type="button" id = "bankActBtn" class="BankActBtn" style="width: 110px; height: 50px; left: 262px; top: 265px; position: absolute;
+            background: #C0AC67; border-radius: 30px; border: 1.25px #C0AC67 solid;
+            text-align: center; color: black; font-size: 25px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">
+        입금</button>
+        <button type="button" id = "bankBackBtn" class="BankBackBtn" style="width: 110px; height: 50px; left: 450px; top: 27px; position: absolute;
+        background: #C0AC67; border-radius: 30px; border: 1.25px #C0AC67 solid;
+        text-align: center; color: black; font-size: 25px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">
+        뒤로가기</button>
+        <div id="user_money" class="MoneyNumTxt" style="width: 169px; height: 49px; left: 185px; top: 126px; position: absolute; text-align: right; color: black; font-size: 28px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">180000 원</div>
+        <div class="MoneyTxt" style="width: 116px; height: 40px; left: 80px; top: 126px; position: absolute; color: black; font-size: 28px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">통장잔액 </div>
+        <div id="user_loan" class="LoanNumTxt" style="width: 189px; height: 49px; left: 165px; top: 175px; position: absolute; text-align: right; color: black; font-size: 28px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word"> 20000 원</div>
+        <div class="LoanTxt" style="width: 116px; height: 40px; left: 80px; top: 175px; position: absolute; color: black; font-size: 28px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">대출 </div>
+        <div id="user_name" class="BankUsername" style="width: 334px; height: 49px; left: 60px; top: 37px; position: absolute; color: black; font-size: 30px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">kaka 님</div>
+        <div id="loan_limit" class="BankLoanLimit" style="width: 334px; height: 49px; left: 180px; top: 37px; position: absolute; color: black; font-size: 30px; font-family: 'TheJamsil5Bold'; font-weight: 500; word-wrap: break-word">대출한도</div>
+    </div>
+
+      <!-- 임시로 만든 policequiz -->
+        <!-- 필요: DB추가 요망 -->
+        <!-- <div id="answer" class="AnswerModal" style="width: 1076px; height: 871px; left: 147px; top: 17px; position: absolute">
+          <div class="PostIt" style="width: 1076px; height: 871px; left: 0px; top: 0px; position: absolute">
+            <div class="PostItPin" style="width: 966.21px; height: 693.82px; left: 128.49px; top: -0px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0">
+              <div class="PostitBody" style="width: 883.44px; height: 513.57px; left: -35.18px; top: 186.69px; position: absolute; transform: rotate(-1.18deg); transform-origin: 0 0; background: #FFECAA"></div>
+              <div class="Group" style="width: 107.20px; height: 107.89px; left: 369.99px; top: 168.62px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0">
+                <div class="Vector" style="width: 99.05px; height: 97.74px; left: -1.88px; top: 9.98px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #ECCA3E"></div>
+                <div class="Vector" style="width: 99.05px; height: 97.74px; left: 7.99px; top: 1.60px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #D40000"></div>
+              </div>
+              <div class="Group" style="width: 98.63px; height: 97.72px; left: 381.33px; top: 167.07px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0">
+                <div class="Vector" style="width: 58.08px; height: 56.87px; left: 32.20px; top: 48.08px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #EE0000"></div>
+                <div class="Vector" style="width: 98.11px; height: 97.08px; left: 0px; top: 0px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #FF0000"></div>
+                <div class="Vector" style="width: 67.10px; height: 51.29px; left: 13.41px; top: 29.63px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #AA0000"></div>
+              </div>
+              <div class="Group" style="width: 80.14px; height: 79.02px; left: 403.96px; top: 160.03px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0">
+                <div class="Vector" style="width: 77.42px; height: 76.40px; left: -0.48px; top: 2.57px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #D40000"></div>
+                <div class="Vector" style="width: 77.42px; height: 76.40px; left: 2.67px; top: 0.53px; position: absolute; transform: rotate(11.29deg); transform-origin: 0 0; background: #FF0000"></div>
+              </div>
+            </div>
+            <div class="Close" style="width: 26.14px; height: 30.47px; left: 900.53px; top: 207.13px; position: absolute; border-radius: 26px; border: 2.75px #938686 solid"></div>
+          </div>
+          <div class="AnswerSheet" style="width: 759.98px; height: 235.05px; left: 160.07px; top: 349.68px; position: absolute; color: black; font-size: 50px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">수요가 높다는 것은 많은 사람들이 같은 물건이나 서비스를 원한다는 뜻이에요. 그래서 수요가 높을수록 판매자들은 가격을 낮추는 경우가 많아요. 사람들이 더 많이 사고 싶어하기 때문이에요!</div>
+          <div class="ShowAnswer" style="width: 184.86px; height: 75.09px; left: 186.77px; top: 263.71px; position: absolute; color: black; font-size: 50px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">정답 : O</div>
+        </div> -->
+      
+      <div id="p_quiz1" class="PoliceQuiz1" style="display:none; width: 1280px; height: 96px; left: 313px; top: 75px; position: absolute">
+        <img class="Quiz01Bg" style="width: 1280px; height: 800px; left: 0px; top: 0px; position: absolute" src="./assets/img/quiz01_bg.png" />
+        <button id="p_o_btn" class="O" style="width: 320.86px; height: 310.35px; left: 692.45px; top: 326.31px; position: absolute; background: #24723A; border-radius: 158px;">
+          <svg width="305" height="300" viewBox="0 0 305 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="304.755" height="299.346" rx="149.673" fill="#24723A"/>
+            <path d="M132.496 90.4C168.296 76.8 190.696 96 200.896 123C208.696 143.4 209.496 168.4 203.896 186.8C202.296 192.8 200.096 197.8 197.296 202.8C190.696 214.2 179.496 221.6 167.096 224.4C149.896 228.4 130.296 224 116.696 210.8C100.296 194.8 95.896 167.2 97.496 146C98.896 126.4 110.096 98.8 132.496 90.4ZM179.296 176C182.496 163.6 182.096 146.4 177.496 132.6C171.696 115.4 160.296 105.4 140.296 114.8C128.496 120.4 124.296 136.6 123.496 149.4C122.496 163.2 124.296 181 133.096 191.6C139.896 199.6 149.896 202.6 158.896 200.6C166.296 199 171.896 194 175.696 186C177.296 183 178.496 179.6 179.296 176Z" fill="white"/>
+            </svg>            
+        </button>
+        <button id="p_x_btn" class="X" style="width: 320.86px; height: 310.35px; left: 150.19px; top: 326.31px; position: absolute; background: rgba(234, 67, 67, 0); border:none; border-radius: 158px;">
+          <svg width="313" height="308" viewBox="0 0 313 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_651_6)">
+            <rect x="4" width="304.755" height="299.346" rx="149.673" fill="#EA4343"/>
+            <rect x="4.5" y="0.5" width="303.755" height="298.346" rx="149.173" stroke="black"/>
+            </g>
+            <path d="M209.287 205.8C212.287 211.2 211.087 215.2 210.487 217.8C209.687 220.8 206.087 222.8 202.487 223.8C200.287 224.4 198.087 224.6 196.487 224.2C194.487 223.8 192.887 223.2 191.487 222.2C189.887 221 188.487 219.6 187.287 218.6C186.087 217.4 184.887 216.2 184.287 215.2C183.687 214.2 183.287 213.8 183.087 213.6L156.487 175.2L130.087 213.6C129.887 213.8 129.487 214.2 128.687 215.2C128.087 216.2 127.087 217.4 126.087 218.6C124.687 219.6 123.087 221 121.687 222.2C120.087 223.2 118.287 223.8 116.687 224.2C114.887 224.6 112.887 224.4 111.087 223.8C106.887 222.8 104.087 220.8 102.487 217.8C99.4867 211.4 104.287 203 108.487 196.8C109.487 195.4 110.487 194.4 111.487 193.2C114.887 188.6 118.087 184 121.687 178.8L140.287 151.8L112.887 112.2L110.487 108.8C109.487 107.2 108.287 106 107.287 104.2C106.287 102.8 105.087 101.2 104.287 99.2C103.487 97.6 102.687 96.2 102.287 94.2C101.887 92.8 101.687 91.2 101.887 89.8C102.287 88 103.087 86.6 104.487 85.4C105.487 84.2 107.087 83.4 108.487 82.6C111.087 81.6 113.087 81 115.487 81C117.887 81.2 120.287 82.2 122.287 83.6C125.087 85.4 127.487 87.6 129.487 90C131.287 92.8 133.087 95.4 135.287 98L135.487 98.8C142.087 107.6 147.087 115.4 153.687 124.4C154.687 125.8 155.487 127 156.487 128.4C157.487 127 158.287 125.8 159.287 124.4C165.487 115.4 170.887 107.6 177.287 98.8L177.687 98C179.687 95.4 181.887 92.8 183.687 90C185.687 87.6 188.087 85.4 190.887 83.6C192.687 82.2 195.087 81.2 197.687 81C200.087 81 202.287 81.6 204.487 82.6C205.887 83.4 207.087 84.2 208.087 85.4C209.687 86.6 210.687 88 211.087 89.8C211.287 91.2 211.087 92.8 210.687 94.2C210.087 96.2 209.487 97.6 208.287 99.2C207.487 101.2 206.687 102.8 205.687 104.2C204.687 106 203.487 107.2 202.687 108.8L200.287 112.2L172.687 151.8L191.287 178.8L202.087 194C204.487 198 206.887 201.6 209.287 205.8Z" fill="white"/>
+            <defs>
+            <filter id="filter0_d_651_6" x="0" y="0" width="312.755" height="307.346" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_651_6"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_651_6" result="shape"/>
+            </filter>
+            </defs>
+            </svg>
+        </button>
+        <div id="p_question1" class="QuestionOx" style="width: 1086px; height: 102px; left: 89px; top: 70px; position: absolute; text-align: center; color: black; font-size: 70px; font-family: 'TheJamsil5Bold'; font-weight: 400; word-wrap: break-word">수요가 높을수록 가격은 낮아진다?</div>
+        <div id="p_answerQ1" class="AnswerModal" style="width: 1048px; height: 845px; left: 37px; top: 72px; position: absolute">
+          <div class="PostIt" style="width: 1038px; height: 845px; left: 0px; top: 0px; position: absolute">
+            <div class="PostItPin" style="width: 940.76px; height: 672.97px; left: 123.96px; top: -0px; position: absolute; transform: rotate(5.64deg); transform-origin: 0 0">
+              <svg class="PostitBody" style="width: 860px; height: 498.04px; left: -33.94px; top: 181.11px; position: absolute; transform: rotate(-1.19deg); transform-origin: 0 0; background: #E6F1C7"
+                xmlns="http://www.w3.org/2000/svg" width="858" height="519" viewBox="0 0 858 519" fill="none">
+                <path d="M848.295 0.518585L0.0151367 18.1135L9.70428 518.481L857.985 500.886L848.295 0.518585Z" fill="#E6F1C7"/>
+              </svg>
+              <svg class="Group3" style="width: 59.56px; height: 60.26px; left: 355.14px; top: 177.80px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="70" height="72" viewBox="0 0 70 72" fill="none">
+                <path d="M59.4416 38.8261C59.4939 46.0843 56.6533 53.0227 51.5444 58.1149C46.4356 63.2072 39.4772 66.0363 32.1999 65.9797C24.9226 65.9231 17.9225 62.9856 12.7397 57.8133C7.5568 52.641 4.61568 45.6576 4.56333 38.3995C4.5374 34.8056 5.22146 31.2525 6.57646 27.9429C7.93145 24.6333 9.93084 21.6321 12.4605 19.1107C14.9901 16.5892 18.0004 14.5969 21.3196 13.2475C24.6387 11.8981 28.2017 11.2179 31.805 11.2459C35.4084 11.274 38.9816 12.0096 42.3206 13.4108C45.6596 14.812 48.699 16.8513 51.2653 19.4124C56.4481 24.5847 59.3892 31.568 59.4416 38.8261Z" fill="#ECCA3E"/>
+                <path d="M64.9251 34.1439C64.951 37.7378 64.2669 41.2909 62.9119 44.6005C61.5569 47.9101 59.5576 50.9113 57.0279 53.4327C54.4983 55.9542 51.488 57.9465 48.1688 59.2959C44.8497 60.6453 41.2867 61.3255 37.6834 61.2974C34.08 61.2694 30.5068 60.5338 27.1678 59.1326C23.8288 57.7314 20.7894 55.6921 18.2231 53.131C15.6569 50.57 13.6139 47.5374 12.211 44.2063C10.8081 40.8753 10.0727 37.3111 10.0468 33.7173C9.99446 26.4591 12.8351 19.5207 17.944 14.4284C23.0528 9.33616 30.0112 6.50713 37.2885 6.56371C44.5658 6.62029 51.5659 9.55783 56.7487 14.7301C61.9316 19.9024 64.8727 26.8857 64.9251 34.1439Z" fill="#D40000"/>
+              </svg>
+              <svg class="Group2" style="width: 54.80px; height: 54.58px; left: 361.44px; top: 176.94px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="65" height="66" viewBox="0 0 65 66" fill="none">
+                <path d="M59.6346 34.0879L32.7708 33.8819L22.4949 58.6588C25.4165 59.7492 28.5605 60.3879 31.8671 60.4139C46.7706 60.5297 59.0491 48.7943 59.6346 34.0879Z" fill="#EE0000"/>
+                <path d="M38.1327 6.50654C36.3523 6.12848 34.5049 5.92542 32.6116 5.91094C17.4656 5.79303 5.00892 17.9068 4.80408 32.9509C4.64347 44.711 12.0324 54.7634 22.4944 58.6626L32.7703 33.8857L59.6341 34.0917C59.644 33.8511 59.6762 33.6188 59.6796 33.3769C59.8592 20.2139 50.5977 9.14567 38.1327 6.50654Z" fill="#FF0000"/>
+                <path d="M24.4442 18.8133L22.2136 19.94L18.0934 22.0491C16.0119 25.0415 15.563 28.5687 15.7862 32.4567C16.3658 42.5428 22.2614 48.5995 32.0362 49.3739C37.0399 49.7705 41.8488 48.9339 45.2893 45.7984L51.5111 40.2048L24.4446 18.8134L24.4442 18.8133Z" fill="#AA0000"/>
+              </svg>
+              <svg class="Group1" style="width: 44.53px; height: 44.13px; left: 374.01px; top: 173px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                <path d="M47.2985 26.8069C47.3394 32.4801 45.119 37.9035 41.1258 41.8838C37.1326 45.8641 31.6937 48.0754 26.0056 48.0311C23.1891 48.0092 20.3962 47.4342 17.7864 46.339C15.1766 45.2438 12.8009 43.6497 10.7951 41.6479C6.74411 37.605 4.44533 32.1466 4.40447 26.4733C4.3636 20.8001 6.584 15.3768 10.5772 11.3965C14.5704 7.41614 20.0093 5.20487 25.6974 5.2491C31.3855 5.29334 36.8569 7.58944 40.9079 11.6323C44.9589 15.6752 47.2577 21.1336 47.2985 26.8069Z" fill="#D40000"/>
+                <path d="M49.0522 25.6665C49.0933 31.3398 46.8731 36.7633 42.8801 40.7438C40.9029 42.7148 38.55 44.2722 35.9557 45.327C33.3614 46.3819 30.5765 46.9137 27.76 46.8919C22.0719 46.8479 16.6004 44.552 12.5492 40.5092C8.49798 36.4665 6.19896 31.0081 6.15785 25.3348C6.11675 19.6615 8.33694 14.238 12.33 10.2575C16.3231 6.27701 21.7619 4.06548 27.4501 4.10948C33.1382 4.15347 38.6097 6.44937 42.6609 10.4921C46.7121 14.5348 49.0111 19.9933 49.0522 25.6665Z" fill="#FF0000"/>
+              </svg>
+            </div>
+            <svg id="p_answerCloseQ1" class="Close" style="width: 25.22px; height: 29.56px; left: 868.73px; top: 270.94px; position: absolute;"
+              xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36" fill="none">
+              <path d="M3.72656 2.94409L28.9451 32.5042M28.9451 2.94409L3.72656 32.5042" stroke="#938686" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="AnswerSheet" style="width: 733.14px; height: 228.04px; left: 154.41px; top: 339.24px; position: absolute; color: black; font-size: 50px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">수요가 높다는 것은 많은 사람들이 같은 물건이나 서비스를 원한다는 뜻이에요. 그래서 수요가 높을수록 판매자들은 가격을 낮추는 경우가 많아요. 사람들이 더 많이 사고 싶어하기 때문이에요!</div>
+          <div class="ShowAnswer" style="width: 178.33px; height: 72.84px; left: 180.17px; top: 255.84px; position: absolute; color: black; font-size: 50px; font-family: 'TheJamsil5Bold'; font-weight: 400; word-wrap: break-word">정답 : O</div>
+        </div>
+      </div>
+
+      <!-- 은행 OX퀴즈 -->
+      <div id="b_quiz1" class="BankQuiz1" style="display:none; width: 1280px; height: 96px; left: 313px; top: 75px; position: absolute">
+        <img class="Quiz01Bg" style="width: 1280px; height: 800px; left: 0px; top: 0px; position: absolute" src="./assets/img/quiz01_bg.png" />
+        <button id="b_o_btn" class="O" style="width: 320.86px; height: 310.35px; left: 692.45px; top: 326.31px; position: absolute; background: #24723A; border-radius: 158px;">
+          <svg width="305" height="300" viewBox="0 0 305 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="304.755" height="299.346" rx="149.673" fill="#24723A"/>
+            <path d="M132.496 90.4C168.296 76.8 190.696 96 200.896 123C208.696 143.4 209.496 168.4 203.896 186.8C202.296 192.8 200.096 197.8 197.296 202.8C190.696 214.2 179.496 221.6 167.096 224.4C149.896 228.4 130.296 224 116.696 210.8C100.296 194.8 95.896 167.2 97.496 146C98.896 126.4 110.096 98.8 132.496 90.4ZM179.296 176C182.496 163.6 182.096 146.4 177.496 132.6C171.696 115.4 160.296 105.4 140.296 114.8C128.496 120.4 124.296 136.6 123.496 149.4C122.496 163.2 124.296 181 133.096 191.6C139.896 199.6 149.896 202.6 158.896 200.6C166.296 199 171.896 194 175.696 186C177.296 183 178.496 179.6 179.296 176Z" fill="white"/>
+            </svg>            
+        </button>
+        <button id="b_x_btn" class="X" style="width: 320.86px; height: 310.35px; left: 150.19px; top: 326.31px; position: absolute; background: rgba(234, 67, 67, 0); border:none; border-radius: 158px;">
+          <svg width="313" height="308" viewBox="0 0 313 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_651_6)">
+            <rect x="4" width="304.755" height="299.346" rx="149.673" fill="#EA4343"/>
+            <rect x="4.5" y="0.5" width="303.755" height="298.346" rx="149.173" stroke="black"/>
+            </g>
+            <path d="M209.287 205.8C212.287 211.2 211.087 215.2 210.487 217.8C209.687 220.8 206.087 222.8 202.487 223.8C200.287 224.4 198.087 224.6 196.487 224.2C194.487 223.8 192.887 223.2 191.487 222.2C189.887 221 188.487 219.6 187.287 218.6C186.087 217.4 184.887 216.2 184.287 215.2C183.687 214.2 183.287 213.8 183.087 213.6L156.487 175.2L130.087 213.6C129.887 213.8 129.487 214.2 128.687 215.2C128.087 216.2 127.087 217.4 126.087 218.6C124.687 219.6 123.087 221 121.687 222.2C120.087 223.2 118.287 223.8 116.687 224.2C114.887 224.6 112.887 224.4 111.087 223.8C106.887 222.8 104.087 220.8 102.487 217.8C99.4867 211.4 104.287 203 108.487 196.8C109.487 195.4 110.487 194.4 111.487 193.2C114.887 188.6 118.087 184 121.687 178.8L140.287 151.8L112.887 112.2L110.487 108.8C109.487 107.2 108.287 106 107.287 104.2C106.287 102.8 105.087 101.2 104.287 99.2C103.487 97.6 102.687 96.2 102.287 94.2C101.887 92.8 101.687 91.2 101.887 89.8C102.287 88 103.087 86.6 104.487 85.4C105.487 84.2 107.087 83.4 108.487 82.6C111.087 81.6 113.087 81 115.487 81C117.887 81.2 120.287 82.2 122.287 83.6C125.087 85.4 127.487 87.6 129.487 90C131.287 92.8 133.087 95.4 135.287 98L135.487 98.8C142.087 107.6 147.087 115.4 153.687 124.4C154.687 125.8 155.487 127 156.487 128.4C157.487 127 158.287 125.8 159.287 124.4C165.487 115.4 170.887 107.6 177.287 98.8L177.687 98C179.687 95.4 181.887 92.8 183.687 90C185.687 87.6 188.087 85.4 190.887 83.6C192.687 82.2 195.087 81.2 197.687 81C200.087 81 202.287 81.6 204.487 82.6C205.887 83.4 207.087 84.2 208.087 85.4C209.687 86.6 210.687 88 211.087 89.8C211.287 91.2 211.087 92.8 210.687 94.2C210.087 96.2 209.487 97.6 208.287 99.2C207.487 101.2 206.687 102.8 205.687 104.2C204.687 106 203.487 107.2 202.687 108.8L200.287 112.2L172.687 151.8L191.287 178.8L202.087 194C204.487 198 206.887 201.6 209.287 205.8Z" fill="white"/>
+            <defs>
+            <filter id="filter0_d_651_6" x="0" y="0" width="312.755" height="307.346" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_651_6"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_651_6" result="shape"/>
+            </filter>
+            </defs>
+            </svg>
+        </button>
+        <div id="b_question1" class="QuestionOx" style="width: 1086px; height: 102px; left: 89px; top: 70px; position: absolute; text-align: center; color: black; font-size: 70px; font-family: 'TheJamsil5Bold'; font-weight: 400; word-wrap: break-word">수요가 높을수록 가격은 낮아진다?</div>
+        <div id="b_answerQ1" class="AnswerModal" style="width: 1048px; height: 845px; left: 37px; top: 72px; position: absolute">
+          <div class="PostIt" style="width: 1038px; height: 845px; left: 0px; top: 0px; position: absolute">
+            <div class="PostItPin" style="width: 940.76px; height: 672.97px; left: 123.96px; top: -0px; position: absolute; transform: rotate(5.64deg); transform-origin: 0 0">
+              <svg class="PostitBody" style="width: 860px; height: 498.04px; left: -33.94px; top: 181.11px; position: absolute; transform: rotate(-1.19deg); transform-origin: 0 0; background: #E6F1C7"
+                xmlns="http://www.w3.org/2000/svg" width="858" height="519" viewBox="0 0 858 519" fill="none">
+                <path d="M848.295 0.518585L0.0151367 18.1135L9.70428 518.481L857.985 500.886L848.295 0.518585Z" fill="#E6F1C7"/>
+              </svg>
+              <svg class="Group3" style="width: 59.56px; height: 60.26px; left: 355.14px; top: 177.80px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="70" height="72" viewBox="0 0 70 72" fill="none">
+                <path d="M59.4416 38.8261C59.4939 46.0843 56.6533 53.0227 51.5444 58.1149C46.4356 63.2072 39.4772 66.0363 32.1999 65.9797C24.9226 65.9231 17.9225 62.9856 12.7397 57.8133C7.5568 52.641 4.61568 45.6576 4.56333 38.3995C4.5374 34.8056 5.22146 31.2525 6.57646 27.9429C7.93145 24.6333 9.93084 21.6321 12.4605 19.1107C14.9901 16.5892 18.0004 14.5969 21.3196 13.2475C24.6387 11.8981 28.2017 11.2179 31.805 11.2459C35.4084 11.274 38.9816 12.0096 42.3206 13.4108C45.6596 14.812 48.699 16.8513 51.2653 19.4124C56.4481 24.5847 59.3892 31.568 59.4416 38.8261Z" fill="#ECCA3E"/>
+                <path d="M64.9251 34.1439C64.951 37.7378 64.2669 41.2909 62.9119 44.6005C61.5569 47.9101 59.5576 50.9113 57.0279 53.4327C54.4983 55.9542 51.488 57.9465 48.1688 59.2959C44.8497 60.6453 41.2867 61.3255 37.6834 61.2974C34.08 61.2694 30.5068 60.5338 27.1678 59.1326C23.8288 57.7314 20.7894 55.6921 18.2231 53.131C15.6569 50.57 13.6139 47.5374 12.211 44.2063C10.8081 40.8753 10.0727 37.3111 10.0468 33.7173C9.99446 26.4591 12.8351 19.5207 17.944 14.4284C23.0528 9.33616 30.0112 6.50713 37.2885 6.56371C44.5658 6.62029 51.5659 9.55783 56.7487 14.7301C61.9316 19.9024 64.8727 26.8857 64.9251 34.1439Z" fill="#D40000"/>
+              </svg>
+              <svg class="Group2" style="width: 54.80px; height: 54.58px; left: 361.44px; top: 176.94px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="65" height="66" viewBox="0 0 65 66" fill="none">
+                <path d="M59.6346 34.0879L32.7708 33.8819L22.4949 58.6588C25.4165 59.7492 28.5605 60.3879 31.8671 60.4139C46.7706 60.5297 59.0491 48.7943 59.6346 34.0879Z" fill="#EE0000"/>
+                <path d="M38.1327 6.50654C36.3523 6.12848 34.5049 5.92542 32.6116 5.91094C17.4656 5.79303 5.00892 17.9068 4.80408 32.9509C4.64347 44.711 12.0324 54.7634 22.4944 58.6626L32.7703 33.8857L59.6341 34.0917C59.644 33.8511 59.6762 33.6188 59.6796 33.3769C59.8592 20.2139 50.5977 9.14567 38.1327 6.50654Z" fill="#FF0000"/>
+                <path d="M24.4442 18.8133L22.2136 19.94L18.0934 22.0491C16.0119 25.0415 15.563 28.5687 15.7862 32.4567C16.3658 42.5428 22.2614 48.5995 32.0362 49.3739C37.0399 49.7705 41.8488 48.9339 45.2893 45.7984L51.5111 40.2048L24.4446 18.8134L24.4442 18.8133Z" fill="#AA0000"/>
+              </svg>
+              <svg class="Group1" style="width: 44.53px; height: 44.13px; left: 374.01px; top: 173px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                <path d="M47.2985 26.8069C47.3394 32.4801 45.119 37.9035 41.1258 41.8838C37.1326 45.8641 31.6937 48.0754 26.0056 48.0311C23.1891 48.0092 20.3962 47.4342 17.7864 46.339C15.1766 45.2438 12.8009 43.6497 10.7951 41.6479C6.74411 37.605 4.44533 32.1466 4.40447 26.4733C4.3636 20.8001 6.584 15.3768 10.5772 11.3965C14.5704 7.41614 20.0093 5.20487 25.6974 5.2491C31.3855 5.29334 36.8569 7.58944 40.9079 11.6323C44.9589 15.6752 47.2577 21.1336 47.2985 26.8069Z" fill="#D40000"/>
+                <path d="M49.0522 25.6665C49.0933 31.3398 46.8731 36.7633 42.8801 40.7438C40.9029 42.7148 38.55 44.2722 35.9557 45.327C33.3614 46.3819 30.5765 46.9137 27.76 46.8919C22.0719 46.8479 16.6004 44.552 12.5492 40.5092C8.49798 36.4665 6.19896 31.0081 6.15785 25.3348C6.11675 19.6615 8.33694 14.238 12.33 10.2575C16.3231 6.27701 21.7619 4.06548 27.4501 4.10948C33.1382 4.15347 38.6097 6.44937 42.6609 10.4921C46.7121 14.5348 49.0111 19.9933 49.0522 25.6665Z" fill="#FF0000"/>
+              </svg>
+            </div>
+            <svg id="b_answerCloseQ1" class="Close" style="width: 25.22px; height: 29.56px; left: 868.73px; top: 270.94px; position: absolute;"
+              xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36" fill="none">
+              <path d="M3.72656 2.94409L28.9451 32.5042M28.9451 2.94409L3.72656 32.5042" stroke="#938686" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="AnswerSheet" style="width: 733.14px; height: 228.04px; left: 154.41px; top: 339.24px; position: absolute; color: black; font-size: 50px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">수요가 높다는 것은 많은 사람들이 같은 물건이나 서비스를 원한다는 뜻이에요. 그래서 수요가 높을수록 판매자들은 가격을 낮추는 경우가 많아요. 사람들이 더 많이 사고 싶어하기 때문이에요!</div>
+          <div class="ShowAnswer" style="width: 178.33px; height: 72.84px; left: 180.17px; top: 255.84px; position: absolute; color: black; font-size: 50px; font-family: 'TheJamsil5Bold'; font-weight: 400; word-wrap: break-word">정답 : O</div>
+        </div>
+      </div>
+
+
+      <div id="c_quiz1" class="ClinicQuiz1" style="display:none; width: 1280px; height: 96px; left: 313px; top: 75px; position: absolute">
+        <img class="Quiz01Bg" style="width: 1280px; height: 800px; left: 0px; top: 0px; position: absolute" src="./assets/img/quiz01_bg.png" />
+        <button id="c_o_btn" class="O" style="width: 320.86px; height: 310.35px; left: 692.45px; top: 326.31px; position: absolute; background: #24723A; border-radius: 158px;">
+          <svg width="305" height="300" viewBox="0 0 305 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="304.755" height="299.346" rx="149.673" fill="#24723A"/>
+            <path d="M132.496 90.4C168.296 76.8 190.696 96 200.896 123C208.696 143.4 209.496 168.4 203.896 186.8C202.296 192.8 200.096 197.8 197.296 202.8C190.696 214.2 179.496 221.6 167.096 224.4C149.896 228.4 130.296 224 116.696 210.8C100.296 194.8 95.896 167.2 97.496 146C98.896 126.4 110.096 98.8 132.496 90.4ZM179.296 176C182.496 163.6 182.096 146.4 177.496 132.6C171.696 115.4 160.296 105.4 140.296 114.8C128.496 120.4 124.296 136.6 123.496 149.4C122.496 163.2 124.296 181 133.096 191.6C139.896 199.6 149.896 202.6 158.896 200.6C166.296 199 171.896 194 175.696 186C177.296 183 178.496 179.6 179.296 176Z" fill="white"/>
+            </svg>            
+        </button>
+        <button id="c_x_btn" class="X" style="width: 320.86px; height: 310.35px; left: 150.19px; top: 326.31px; position: absolute; background: rgba(234, 67, 67, 0); border:none; border-radius: 158px;">
+          <svg width="313" height="308" viewBox="0 0 313 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_651_6)">
+            <rect x="4" width="304.755" height="299.346" rx="149.673" fill="#EA4343"/>
+            <rect x="4.5" y="0.5" width="303.755" height="298.346" rx="149.173" stroke="black"/>
+            </g>
+            <path d="M209.287 205.8C212.287 211.2 211.087 215.2 210.487 217.8C209.687 220.8 206.087 222.8 202.487 223.8C200.287 224.4 198.087 224.6 196.487 224.2C194.487 223.8 192.887 223.2 191.487 222.2C189.887 221 188.487 219.6 187.287 218.6C186.087 217.4 184.887 216.2 184.287 215.2C183.687 214.2 183.287 213.8 183.087 213.6L156.487 175.2L130.087 213.6C129.887 213.8 129.487 214.2 128.687 215.2C128.087 216.2 127.087 217.4 126.087 218.6C124.687 219.6 123.087 221 121.687 222.2C120.087 223.2 118.287 223.8 116.687 224.2C114.887 224.6 112.887 224.4 111.087 223.8C106.887 222.8 104.087 220.8 102.487 217.8C99.4867 211.4 104.287 203 108.487 196.8C109.487 195.4 110.487 194.4 111.487 193.2C114.887 188.6 118.087 184 121.687 178.8L140.287 151.8L112.887 112.2L110.487 108.8C109.487 107.2 108.287 106 107.287 104.2C106.287 102.8 105.087 101.2 104.287 99.2C103.487 97.6 102.687 96.2 102.287 94.2C101.887 92.8 101.687 91.2 101.887 89.8C102.287 88 103.087 86.6 104.487 85.4C105.487 84.2 107.087 83.4 108.487 82.6C111.087 81.6 113.087 81 115.487 81C117.887 81.2 120.287 82.2 122.287 83.6C125.087 85.4 127.487 87.6 129.487 90C131.287 92.8 133.087 95.4 135.287 98L135.487 98.8C142.087 107.6 147.087 115.4 153.687 124.4C154.687 125.8 155.487 127 156.487 128.4C157.487 127 158.287 125.8 159.287 124.4C165.487 115.4 170.887 107.6 177.287 98.8L177.687 98C179.687 95.4 181.887 92.8 183.687 90C185.687 87.6 188.087 85.4 190.887 83.6C192.687 82.2 195.087 81.2 197.687 81C200.087 81 202.287 81.6 204.487 82.6C205.887 83.4 207.087 84.2 208.087 85.4C209.687 86.6 210.687 88 211.087 89.8C211.287 91.2 211.087 92.8 210.687 94.2C210.087 96.2 209.487 97.6 208.287 99.2C207.487 101.2 206.687 102.8 205.687 104.2C204.687 106 203.487 107.2 202.687 108.8L200.287 112.2L172.687 151.8L191.287 178.8L202.087 194C204.487 198 206.887 201.6 209.287 205.8Z" fill="white"/>
+            <defs>
+            <filter id="filter0_d_651_6" x="0" y="0" width="312.755" height="307.346" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_651_6"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_651_6" result="shape"/>
+            </filter>
+            </defs>
+            </svg>
+        </button>
+        <div id="c_question1" class="QuestionOx" style="width: 1086px; height: 102px; left: 89px; top: 70px; position: absolute; text-align: center; color: black; font-size: 70px; font-family: 'TheJamsil5Bold'; font-weight: 400; word-wrap: break-word">수요가 높을수록 가격은 낮아진다?</div>
+        <div id="c_answerQ1" class="AnswerModal" style="width: 1048px; height: 845px; left: 37px; top: 72px; position: absolute">
+          <div class="PostIt" style="width: 1038px; height: 845px; left: 0px; top: 0px; position: absolute">
+            <div class="PostItPin" style="width: 940.76px; height: 672.97px; left: 123.96px; top: -0px; position: absolute; transform: rotate(5.64deg); transform-origin: 0 0">
+              <svg class="PostitBody" style="width: 860px; height: 498.04px; left: -33.94px; top: 181.11px; position: absolute; transform: rotate(-1.19deg); transform-origin: 0 0; background: #E6F1C7"
+                xmlns="http://www.w3.org/2000/svg" width="858" height="519" viewBox="0 0 858 519" fill="none">
+                <path d="M848.295 0.518585L0.0151367 18.1135L9.70428 518.481L857.985 500.886L848.295 0.518585Z" fill="#E6F1C7"/>
+              </svg>
+              <svg class="Group3" style="width: 59.56px; height: 60.26px; left: 355.14px; top: 177.80px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="70" height="72" viewBox="0 0 70 72" fill="none">
+                <path d="M59.4416 38.8261C59.4939 46.0843 56.6533 53.0227 51.5444 58.1149C46.4356 63.2072 39.4772 66.0363 32.1999 65.9797C24.9226 65.9231 17.9225 62.9856 12.7397 57.8133C7.5568 52.641 4.61568 45.6576 4.56333 38.3995C4.5374 34.8056 5.22146 31.2525 6.57646 27.9429C7.93145 24.6333 9.93084 21.6321 12.4605 19.1107C14.9901 16.5892 18.0004 14.5969 21.3196 13.2475C24.6387 11.8981 28.2017 11.2179 31.805 11.2459C35.4084 11.274 38.9816 12.0096 42.3206 13.4108C45.6596 14.812 48.699 16.8513 51.2653 19.4124C56.4481 24.5847 59.3892 31.568 59.4416 38.8261Z" fill="#ECCA3E"/>
+                <path d="M64.9251 34.1439C64.951 37.7378 64.2669 41.2909 62.9119 44.6005C61.5569 47.9101 59.5576 50.9113 57.0279 53.4327C54.4983 55.9542 51.488 57.9465 48.1688 59.2959C44.8497 60.6453 41.2867 61.3255 37.6834 61.2974C34.08 61.2694 30.5068 60.5338 27.1678 59.1326C23.8288 57.7314 20.7894 55.6921 18.2231 53.131C15.6569 50.57 13.6139 47.5374 12.211 44.2063C10.8081 40.8753 10.0727 37.3111 10.0468 33.7173C9.99446 26.4591 12.8351 19.5207 17.944 14.4284C23.0528 9.33616 30.0112 6.50713 37.2885 6.56371C44.5658 6.62029 51.5659 9.55783 56.7487 14.7301C61.9316 19.9024 64.8727 26.8857 64.9251 34.1439Z" fill="#D40000"/>
+              </svg>
+              <svg class="Group2" style="width: 54.80px; height: 54.58px; left: 361.44px; top: 176.94px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="65" height="66" viewBox="0 0 65 66" fill="none">
+                <path d="M59.6346 34.0879L32.7708 33.8819L22.4949 58.6588C25.4165 59.7492 28.5605 60.3879 31.8671 60.4139C46.7706 60.5297 59.0491 48.7943 59.6346 34.0879Z" fill="#EE0000"/>
+                <path d="M38.1327 6.50654C36.3523 6.12848 34.5049 5.92542 32.6116 5.91094C17.4656 5.79303 5.00892 17.9068 4.80408 32.9509C4.64347 44.711 12.0324 54.7634 22.4944 58.6626L32.7703 33.8857L59.6341 34.0917C59.644 33.8511 59.6762 33.6188 59.6796 33.3769C59.8592 20.2139 50.5977 9.14567 38.1327 6.50654Z" fill="#FF0000"/>
+                <path d="M24.4442 18.8133L22.2136 19.94L18.0934 22.0491C16.0119 25.0415 15.563 28.5687 15.7862 32.4567C16.3658 42.5428 22.2614 48.5995 32.0362 49.3739C37.0399 49.7705 41.8488 48.9339 45.2893 45.7984L51.5111 40.2048L24.4446 18.8134L24.4442 18.8133Z" fill="#AA0000"/>
+              </svg>
+              <svg class="Group1" style="width: 44.53px; height: 44.13px; left: 374.01px; top: 173px; position: absolute; transform: rotate(11.35deg); transform-origin: 0 0"
+                xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                <path d="M47.2985 26.8069C47.3394 32.4801 45.119 37.9035 41.1258 41.8838C37.1326 45.8641 31.6937 48.0754 26.0056 48.0311C23.1891 48.0092 20.3962 47.4342 17.7864 46.339C15.1766 45.2438 12.8009 43.6497 10.7951 41.6479C6.74411 37.605 4.44533 32.1466 4.40447 26.4733C4.3636 20.8001 6.584 15.3768 10.5772 11.3965C14.5704 7.41614 20.0093 5.20487 25.6974 5.2491C31.3855 5.29334 36.8569 7.58944 40.9079 11.6323C44.9589 15.6752 47.2577 21.1336 47.2985 26.8069Z" fill="#D40000"/>
+                <path d="M49.0522 25.6665C49.0933 31.3398 46.8731 36.7633 42.8801 40.7438C40.9029 42.7148 38.55 44.2722 35.9557 45.327C33.3614 46.3819 30.5765 46.9137 27.76 46.8919C22.0719 46.8479 16.6004 44.552 12.5492 40.5092C8.49798 36.4665 6.19896 31.0081 6.15785 25.3348C6.11675 19.6615 8.33694 14.238 12.33 10.2575C16.3231 6.27701 21.7619 4.06548 27.4501 4.10948C33.1382 4.15347 38.6097 6.44937 42.6609 10.4921C46.7121 14.5348 49.0111 19.9933 49.0522 25.6665Z" fill="#FF0000"/>
+              </svg>
+            </div>
+            <svg id="c_answerCloseQ1" class="Close" style="width: 25.22px; height: 29.56px; left: 868.73px; top: 270.94px; position: absolute;"
+              xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36" fill="none">
+              <path d="M3.72656 2.94409L28.9451 32.5042M28.9451 2.94409L3.72656 32.5042" stroke="#938686" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="AnswerSheet" style="width: 733.14px; height: 228.04px; left: 154.41px; top: 339.24px; position: absolute; color: black; font-size: 50px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">수요가 높다는 것은 많은 사람들이 같은 물건이나 서비스를 원한다는 뜻이에요. 그래서 수요가 높을수록 판매자들은 가격을 낮추는 경우가 많아요. 사람들이 더 많이 사고 싶어하기 때문이에요!</div>
+          <div class="ShowAnswer" style="width: 178.33px; height: 72.84px; left: 180.17px; top: 255.84px; position: absolute; color: black; font-size: 50px; font-family: 'TheJamsil5Bold'; font-weight: 400; word-wrap: break-word">정답 : O</div>
+        </div>
+      </div>
+
+
+
+      <div id="quiz2" class="Quiz02" style="display:none; width: 1258px; height: 782px; left: 324px; top: 87px; position: absolute">
+        <div class="Quiz01Bg" style="width: 1258px; height: 782px; left: 0px; top: 0px; position: absolute; background: white"></div>
+        <div class="Quiz02Bg" style="width: 1225px; height: 753px; left: 16px; top: 15px; position: absolute; border: 3.50px #459A86 dashed"></div>
+        <div id="q2">
+          <div id="question2" style="width: 1076px; height: 102px; left: 89px; top: 126px; position: absolute; text-align: center; color: black; font-size: 80px; font-family: 'TheJamsil5Bold';; font-weight: 400; word-wrap: break-word">인구가 늘어나거나 줄어들 때 <br>
+            발생하는 경제적 현상은?</div>
+          <button id= "ansBtn1" class="AnswerBtn01" style="width: 590px; height: 85px; left: 589px; top: 601px; position: absolute; background: #459A86; border-radius: 75px;
+          text-align: center; color: white; font-size: 40px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">
+            국제무역
+          </button>
+          <button id= "ansBtn2" class="AnswerBtn02" style="width: 590px; height: 85px; left: 589px; top: 474px; position: absolute; background: #459A86; border-radius: 75px;
+          text-align: center; color: white; font-size: 40px; font-family: 'Cafe24Supermagic-Bold-v1.0';font-weight: 400; word-wrap: break-word">
+            인플레이션
+          </button>
+          <button id= "ansBtn3" class="AnswerBtn03" style="width: 590px; height: 85px; left: 589px; top: 352px; position: absolute; background: #459A86; border-radius: 75px;
+          text-align: center; color: white; font-size: 40px; font-family: 'Cafe24Supermagic-Bold-v1.0'; font-weight: 400; word-wrap: break-word">
+          고령화
+          </button>
+        </div>
+        <img class="Quiz2Logo" style="width: 371px; height: 292px; left: 140px; top: 361px; position: absolute" src="./assets/img/quiz2 logo.png" />
+      </div>
+
+      
+      <div id = "final" class="FinalModal" style="display:none; width: 1282px; height: 96px; left: 322px; top: 85px; position: absolute">
+        <div class="End" style="width: 929px; height: 1285px; left: 0px; top: 929px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: linear-gradient(0deg, #C6FF24 0%, #C6FF24 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%); border-radius: 21px"></div>
+        <div class="GameOver" style="width: 511px; height: 504.87px; left: 96px; top: 253.46px; position: absolute; text-align: center"><span style="color: white; font-size: 160px; font-family: 'Giants-Inline'; font-weight: 400; word-wrap: break-word">GAME <br/></span><span style="color: #FF0000; font-size: 160px; font-family: 'Giants-Inline'; font-weight: 400; word-wrap: break-word">OVER</span></div>
+        <div id ="result" class="ResultModal" style="display: none; width: 701.56px; height: 758.13px; left: 561.74px; top: 98.34px; position: absolute">
+          <div class="ResultBg" style="width: 642.64px; height: 704.29px; left: 81.41px; top: 45px; position:absolute">
+            <svg class="RBgPs00"  xmlns="http://www.w3.org/2000/svg" width="597" height="665" viewBox="0 0 597 665" fill="none">
+              <defs>
+                <radialGradient id="paint0_radial_441_432" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(563.39 807.862) rotate(-54.6676) scale(522.458 187.886)">
+                  <stop stop-color="#CCCCCC"/>
+                  <stop offset="1" stop-color="white" stop-opacity="0.57"/>
+                </radialGradient>
+              </defs>
+            </svg>
+            <svg class="Group" style="width: 71.84px; height: 98.39px; left: 229.36px; top: 49.17px; position: absolute; transform: rotate(5.06deg); transform-origin: 0 0"
+              xmlns="http://www.w3.org/2000/svg" width="82" height="105" viewBox="0 0 82 105" fill="none">
+              <g filter="url(#filter0_f_441_433)">
+                <path d="M39.92 101.866C21.2404 101.332 5.39724 91.6911 4.53139 80.3333C3.66555 68.9755 18.107 60.2009 36.7856 60.7347C55.4642 61.2686 71.3083 70.9096 72.1742 82.2674C73.0299 93.5014 58.9037 102.232 40.4442 101.878" fill="#4D4D4D"/>
+              </g>
+              <path d="M42.9896 9.45147C31.2947 9.23762 22.2811 15.6912 22.7168 24.0039C22.7448 24.5234 22.8113 25.0341 22.9096 25.5415C22.8794 25.9354 22.8726 25.857 22.8437 26.296C22.6938 28.493 22.4968 30.9888 22.6083 32.7382C22.7383 34.7787 23.6194 36.8735 23.7072 38.9176C23.8204 41.5587 23.0153 46.8399 23.0153 46.8399L19.7264 50.7311C9.56658 54.0797 3.14296 60.6602 3.77453 68.3261C4.73072 79.934 21.3649 89.6516 41.1733 90.2623L41.8235 90.3198C61.3975 90.7444 76.2813 81.9578 75.336 70.4775C74.8738 64.8702 70.5865 59.7613 64.1679 55.8043L60.6619 50.9324C60.6619 50.9324 60.0839 44.2493 60.8682 41.0672C61.2545 39.5006 62.4207 38.2231 62.8895 36.6845C63.46 34.8106 63.9314 32.0417 64.1657 29.5748C64.1857 29.3698 64.181 29.3956 64.1986 29.1976C64.732 27.8082 64.9669 26.6193 64.8856 25.0769C64.4499 16.7654 54.6846 9.66532 42.9896 9.45147Z" fill="#FF0000"/>
+              <path d="M44.4208 41.4301C29.6872 41.1614 17.2989 32.4525 16.7488 21.9814C16.1986 11.5104 27.6982 3.24105 42.4317 3.51093C57.1653 3.77959 69.5536 12.4878 70.1038 22.9589C70.6472 33.315 59.3967 41.5411 44.8355 41.4349" fill="#FF8080"/>
+              <path opacity="0.56" d="M57.829 39.1247L58.0106 50.7258L73.3434 78.3875C67.1579 86.2093 58.6323 88.9116 51.8776 89.5493L42.6313 60.2634L43.1625 41.4769C48.2283 41.7452 53.22 40.6881 57.829 39.1247Z" fill="#CCCCCC"/>
+              <path opacity="0.62" d="M44.08 40.9014C29.7987 40.6399 17.7896 32.1998 17.2566 22.049C16.7235 11.8982 27.8696 3.88279 42.152 4.14436C56.4344 4.40594 68.4426 12.8459 68.9756 22.9968C69.5026 33.0364 58.597 41.0098 44.4811 40.9065" fill="url(#paint0_linear_441_433)"/>
+              <defs>
+                <filter id="filter0_f_441_433" x="3.35885" y="59.5759" width="69.9879" height="43.4486" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                  <feGaussianBlur stdDeviation="0.56789" result="effect1_foregroundBlur_441_433"/>
+                </filter>
+                <linearGradient id="paint0_linear_441_433" x1="260.712" y1="710.985" x2="244.898" y2="720.763" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF0000"/>
+                  <stop offset="1" stop-color="#666666"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="ResultMsg" style="width: 364.99px; height: 432.96px; left: 143.02px; top: 209.28px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0">
+            <div class="RTitle" style="width: 143.81px; height: 47.52px; left: 58.22px; top: 381.07px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">자산 총점</div>
+            <div class="RTitleLoan" style="width: 101.96px; height: 47.52px; left: 85.83px; top: 288.24px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">대출금</div>
+            <div class="RTitleHousing" style="width: 143.81px; height: 47.52px; left: 15.29px; top: 116.55px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">실물 자산</div>
+            <div class="RTitleInt" style="width: 69.76px; height: 47.52px; left: 106.22px; top: 215.13px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">능력</div>
+            <div class="RTitleHp" style="width: 68.69px; height: 47.52px; left: 98.27px; top: 162.90px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">체력</div>
+            <div class="RTitleSavings" style="width: 69.76px; height: 47.52px; left: 79.78px; top: 47.71px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">적금</div>
+            <div class="RTitleMoney" style="width: 68.69px; height: 47.52px; left: 67.38px; top: -6.03px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: center; color: black; font-size: 35px; font-family: 'TheJamsil5Bold'; font-weight: 700; word-wrap: break-word">잔액</div>
+            <div id="r_money" class="RScoreMoney" style="width: 237.18px; height: 47.52px; left: 120.60px; top: -16.03px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+            <div id="r_savings" class="RScoreSavings" style="width: 237.18px; height: 47.52px; left: 129.82px; top: 37.19px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+            <div id="r_housing" class="RScoreHousing" style="width: 237.18px; height: 47.52px; left: 137.45px; top: 97.93px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+            <div id="r_hp" class="RScoreHp" style="width: 237.18px; height: 47.52px; left: 145.07px; top: 153.26px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+            <div id="r_int" class="RScoreInt" style="width: 237.18px; height: 47.52px; left: 151.58px; top: 205.41px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+            <div id="r_loan" class="RScoreLoan" style="width: 237.18px; height: 47.52px; left: 164.46px; top: 274.55px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+            <div id = "r_score" class="RScore" style="width: 237.18px; height: 47.52px; left: 176.26px; top: 360.97px; position: absolute; transform: rotate(-7.57deg); transform-origin: 0 0; text-align: right; color: black; font-size: 35px; font-family: NeoDunggeunmo; font-weight: 700; word-wrap: break-word">10,000 </div>
+          </div>
+        </div>
+      </div>
+
+      <div id = "mypage" class="Mypage" style="display:none; width: 858px; height: 582px; left: 521px; top: 198px; position: absolute">
+        <div class="MpBg01" style="width: 858px; height: 582px; left: 0px; top: 0px; position: absolute; background: #9BC12C"></div>
+        <div class="MpBg00" style="width: 812px; height: 541px; left: 20px; top: 19px; position: absolute; background: #F9F9F9; border-radius: 25px"></div>
+        <img class="F3eb78594a9afb6a28a9f2940601" style="width: 280px; height: 271px; left: 36px; top: 283px; position: absolute" src="./assets/img/mypage.gif" />
+        <div class="MpSavings" style="width: 344px; height: 81px; left: 514px; top: 145px; position: absolute">
+            <div class="MpInput00" style="width: 290px; height: 81px; left: 0px; top: 0px; position: absolute; background: #CBB55C; border: 0.50px black solid"></div>
+            <div id="mypage_saving" class="user_savings" style="width: 270px; height: 62px; left: 11px; top: 10px; position: absolute; background: #ECCA3E; border-radius: 12px; border: 0.50px black solid; font-size: 43px; font-family: NeoDunggeunmo;">₩ 500000</div>
+        </div>
+        <div id="mp_limit" class="MpLimit" style="width: 304px; height: 81px; left: 514px; top: 242px; position: absolute">
+            <div class="MpInput00" style="width: 290px; height: 81px; left: 0px; top: 0px; position: absolute; background: #CBB55C; border: 0.50px black solid"></div>
+            <div id="mypage_loan" class="MpInput01" style="width: 270px; height: 62px; left: 11px; top: 10px; position: absolute; background: #ECCA3E; border-radius: 12px; border: 0.50px black solid; font-size: 43px; font-family: NeoDunggeunmo;">₩ 50000</div>
+        </div>
+        <div id="mp_loan"  class="MpLoan" style="width: 344px; height: 81px; left: 514px; top: 339px; position: absolute">
+            <div class="MpInput00" style="width: 290px; height: 81px; left: 0px; top: 0px; position: absolute; background: #CBB55C; border: 0.50px black solid"></div>
+            <div id="mypage_limit" class="MpInput01" style="width: 270px; height: 62px; left: 11px; top: 10px; position: absolute; background: #ECCA3E; border-radius: 12px; border: 0.50px black solid; font-size: 43px; font-family: NeoDunggeunmo;">₩ 500000</div>
+        </div>
+        <div class="MpHousing" style="width: 344px; height: 81px; left: 514px; top: 436px; position: absolute">
+            <div class="MpInput00" style="width: 290px; height: 81px; left: 0px; top: 0px; position: absolute; background: #CBB55C; border: 0.50px black solid"></div>
+            <div id="mypage_housing" class="user_housing" style="width: 270px; height: 62px; left: 10px; top: 10px; position: absolute; background: #ECCA3E; border-radius: 12px; border: 0.50px black solid; font-size: 43px; font-family: NeoDunggeunmo;">₩ 50000</div>
+        </div>
+        <div style="left: 326px; top: 260px; position: absolute; text-align: right; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 400; word-wrap: break-word">잔여 한도</div>
+        <div style="width: 170px; left: 317px; top: 357px; position: absolute; text-align: right; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 400; word-wrap: break-word">대출금</div>
+        <div  style="width: 170px; left: 317px; top: 454px; position: absolute; text-align: right; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 400; word-wrap: break-word">집값</div>
+        <div id="mypage_job" style="width: 170px; left: 90px; top: 126px; position: absolute; text-align: right; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 400; word-wrap: break-word">직업</div>
+        <div  style="left: 402px; top: 166px; position: absolute; text-align: right; color: black; font-size: 45px; font-family: 'LINESeedKR-Bd'; font-weight: 400; word-wrap: break-word">적금</div>
+        <div id="mypage_name" style="width: 561px; left: 78px; top: 63px; position: absolute; color: black; font-size: 55px; font-family: 'LINESeedKR-Bd'; font-weight: 400; word-wrap: break-word">닉네임 명</div>
+        <div class="Level" style="width: 213px; height: 66px; left: 611px; top: 63px; position: absolute">
+            <div class="s01" style="width: 85px; height: 66px; left: 0px; top: 0px; position: absolute; color: black; font-size: 55px; font-family: BM HANNA_TTF; font-weight: 400; word-wrap: break-word">⭐️</div>
+            <div class="s02" style="width: 85px; height: 66px; left: 64px; top: 0px; position: absolute; color: black; font-size: 55px; font-family: BM HANNA_TTF; font-weight: 400; word-wrap: break-word">⭐️</div>
+            <div class="s03" style="width: 85px; height: 66px; left: 128px; top: 0px; position: absolute; color: black; font-size: 55px; font-family: BM HANNA_TTF; font-weight: 400; word-wrap: break-word">⭐️</div>
+        </div>
+      </div>
+     
+      <div id="loading" class="Loading" style="display:none; width: 1280px; height: 930px; left: 314px; top: 75px; position: absolute;">
+          <div class="Loading" style="width: 1280px; height: 930px; left: 0px; top: 0px; position: absolute; background: #404040; border: 0.50px black solid"></div>
+          <img class="Loading1" style="width: 355px; height: 379.63px; left: 431px; top: 275px; position: absolute" src="./assets/img/loading.gif" />
+      </div>
+
+<script>
+  // const nick = document.getElementById('nick-name');
+  const user_name = document.getElementById('nick-name');
+  const user_level = document.getElementById('lever');
+  const user_ability = document.getElementById('ability')
+  const user_health = document.getElementById('health');
+  const user_money = document.getElementById('money');
+  const timer_min = document.getElementById('min');
+  const timer_sec = document.getElementById('sec');
+  const curr_winner = document.getElementById('cur_winner');
+
+  //마이페이지 관련 선언 필요함
+  //은행 모달
+  const bank_input = document.getElementById('BankActInput');
+  const bank_name = document.getElementById('BankUsername');
+  const bank_money = document.getElementById('MoneyNumTxt');
+  const bank_loan = document.getElementById('LoanNumTxt')
+  const bank_act_btn = document.getElementById('BankActTxt')
+
+  const sel_staff_txt = document.getElementById('WorkingTxt');
+  const sle_visit_txt = document.getElementById('EventTxt')  
+
+  const name = getCookie('nickname')
+  user_name.innerHTML = `${name}`;
+
+  function getCookie(name) {
+      const value = '; ' + document.cookie;
+      const parts = value.split('; ' + name + '=');
+      if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+      
+fetch('/getData')
+  .then(response => response.json())
+  .then(data =>{
+      // const limit = data.limit;
+      // const loan = data.loan;
+      // const housing = data.housing;
+      const ability = data.ability;
+      // const savings = data.savings;
+      const level = data.level;
+
+        user_ability.innerHTML = `${ability}`;
+      // user_money.innerHTML = `${money}`;
+      // limit_elem.innerHTML = `${limit}`;
+      // loan_elem.innerHTML = `${loan}`;
+      // level_elem.innerHTML = `${level}`;
+
+      //마이페이지 생기면
+  })
+
+  //버튼들
+const chatIcon = document.querySelector('.ChatIcon').addEventListener("click", ()=>{
+  const chat = document.getElementById('chat');
+  if (chat.style.display ==="block"){
+      chat.style.display ="none"
+  }else {
+      chat.style.display= "block"
+  }
+})
+const mypageIcon = document.querySelector('.MypageIcon').addEventListener("click", ()=>{
+const mypage = document.getElementById('mypage');
+if (mypage.style.display ==="block"){
+    mypage.style.display ="none"
+}else {
+    mypage.style.display= "block"
+}
+})
+
+function openShop() {
+  shop.style.display = "block";
+  const inHigh = document.getElementById('inHigh');
+  const inLow = document.getElementById('inLow');
+  const energy = document.getElementById('energy');
+  const food = document.getElementById('food');
+  const book = document.getElementById('book');
+
+  inHigh.addEventListener('click', ()=>{
+      console.log('high')
+  })
+
+  inLow.addEventListener('click', ()=>{
+      console.log('low')
+  })
+
+  energy.addEventListener('click', ()=>{
+      console.log('energy')
+      fetch('/increase-health', { method: 'POST' });
+      })
+      
+  food.addEventListener('click', ()=>{
+
+  })
+  book.addEventListener('click', ()=>{
+      
+  })
+}
+</script>
+<script>
+    let player = document.getElementById("player");
+    let bgmbtn = document.getElementById('bgmbtn');
+    let playbtn = document.getElementById('play');
+    let pausebtn = document.getElementById('pause');
+    function togglePlayPause() {
+        if (player.paused) {
+            player.play();
+            bgmbtn.innerHTML = `
+            <svg id="pause" xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+              <path d="M0 0V43H14.3333V0H0ZM28.6667 0V43H43V0H28.6667Z" fill="black"/>
+            </svg>`
+        } else {
+            player.pause();
+            bgmbtn.innerHTML = `
+            <svg id="play" xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+              <path d="M0 0V43L43 21.5L0 0Z" fill="black"/>
+            </svg>`
+        }
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
